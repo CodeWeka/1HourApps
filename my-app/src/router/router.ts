@@ -13,29 +13,26 @@ const routes: Array<RouteConfig> = [
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import("../views/About.vue")
   },
   {
     path: "/apps",
-    name: "Apps",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    name: "AppList",
     component: () =>
-        import(/* webpackChunkName: "about" */ "../views/Apps.vue")
+        import("../views/AppList.vue")
   },
   {
     path: "/apps/countdown",
     name: "CountDown",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-        import(/* webpackChunkName: "about" */ "../views/1HourApps/CountDown.vue")
+        import("../views/1HourApps/CountDown.vue")
+  },
+  {
+    path: "/apps/drawcanvas",
+    name: "DrawCanvas",
+    component: () =>
+        import("../views/1HourApps/DrawCanvas.vue")
   }
 ];
 

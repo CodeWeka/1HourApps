@@ -21,7 +21,7 @@
 
 #nav {
   padding: 0;
-  min-height: 10vh;
+  min-height: 2vh;
   a {
     font-weight: bold;
     color: #2c3e50;

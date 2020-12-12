@@ -86,7 +86,7 @@ export default class CountDown extends Vue {
   display: flex;
   flex-flow: column wrap;
   min-width: 100%;
-  min-height: 90vh;
+  min-height: 98vh;
   padding: 0;
 }
 
