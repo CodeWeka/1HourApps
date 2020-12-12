@@ -5,19 +5,19 @@
     <b-row class="cd-row" />
     <b-row class="cd-row">
       <b-col class="cd-col">
-        <strong>{{ year }} <br> year</strong>
+        <strong>{{year }} <br> year</strong>
       </b-col>
       <b-col class="cd-col">
-        <strong>{{ month % 12 }} <br> month</strong>
+        <strong>{{ month%12 }} <br> month</strong>
       </b-col>
       <b-col class="cd-col">
-        <strong>{{ week % 7 }} <br> week</strong>
+        <strong>{{ Math.floor(week%4.3) }} <br> week</strong>
       </b-col>
       <b-col class="cd-col">
-        <strong>{{ day % 24 }} <br> day</strong>
+        <strong>{{ day % 7}} <br> day</strong>
       </b-col>
       <b-col class="cd-col">
-        <strong>{{ hour % 60 }} <br> hour</strong>
+        <strong>{{ hour % 24 }} <br> hour</strong>
       </b-col>
       <b-col class="cd-col">
         <strong>{{ minute % 60 }} <br> minute</strong>
@@ -53,13 +53,13 @@ export default class CountDown extends Vue {
   public currentTime = Date.now();
   public targetDate = new Date("January 1, 21 00:00:00 GMT+00:00");
 
-  public second = "";
-  public minute = undefined;
-  public hour = undefined;
-  public day = undefined;
-  public week = undefined;
-  public month = "";
-  public year = "";
+  public second = 0;
+  public minute = 0;
+  public hour = 0;
+  public day = 0;
+  public week = 0;
+  public month = 0;
+  public year = 0;
 
   public created() {
     window.setInterval(this.getTime, 1000);
@@ -67,13 +67,13 @@ export default class CountDown extends Vue {
 
   public getTime() {
     this.currentTime = Date.now();
-    const timeLeft = this.targetDate - this.currentTime;
+    const timeLeft = this.targetDate.valueOf() - this.currentTime;
     this.second = Math.floor(timeLeft / 1000);
     this.minute = Math.floor(this.second / 60);
     this.hour = Math.floor(this.minute / 60);
     this.day = Math.floor(this.hour / 24);
     this.week = Math.floor(this.day / 7);
-    this.month = Math.floor(this.day / 30);
+    this.month = Math.floor(this.week / 4.3);
     this.year = Math.floor(this.month / 12);
   }
 }

@@ -63,7 +63,7 @@ import { Component, Vue } from "vue-property-decorator";
   components: {}
 })
 export default class DrawCanvas extends Vue {
-  public dCanvas = null;
+  public dCanvas :any = document.createElement("canvas");
   public x = 0;
   public y = 0;
   public brushColor = "#000000";
@@ -71,15 +71,15 @@ export default class DrawCanvas extends Vue {
   public isDrawing = false;
 
   public mounted(): void {
-    const d = document.getElementById("drawCanvas");
-    this.dCanvas = d.getContext("2d");
+    const d:any = document.getElementById("drawCanvas");
+    this.dCanvas = d!.getContext("2d");
   }
   public clearCanvas() {
     const ctx = this.dCanvas;
-    const d = document.getElementById("drawCanvas");
-    ctx.clearRect(0, 0, d.width, d.height);
+    const d:any = document.getElementById("drawCanvas");
+    ctx!.clearRect(0, 0, d!.width, d!.height);
   }
-  public mouseCoordinates(e: Event) {
+  public mouseCoordinates(e: MouseEvent) {
     this.x = e.offsetX;
     this.y = e.offsetY;
   }
@@ -95,7 +95,7 @@ export default class DrawCanvas extends Vue {
     ctx.closePath();
   }
 
-  public draw(e: Event) {
+  public draw(e: MouseEvent) {
     if (this.isDrawing) {
       this.drawLine(this.x, this.y, e.offsetX, e.offsetY);
       this.x = e.offsetX;
@@ -103,13 +103,13 @@ export default class DrawCanvas extends Vue {
     }
   }
 
-  public beginDrawing(e: Event) {
+  public beginDrawing(e: MouseEvent) {
     this.x = e.offsetX;
     this.y = e.offsetY;
     this.isDrawing = true;
   }
 
-  public stopDrawing(e: Event) {
+  public stopDrawing(e: MouseEvent) {
     if (this.isDrawing) {
       this.drawLine(this.x, this.y, e.offsetX, e.offsetY);
       this.x = 0;
