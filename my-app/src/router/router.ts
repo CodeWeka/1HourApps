@@ -33,7 +33,19 @@ const routes: Array<RouteConfig> = [
     name: "DrawCanvas",
     component: () =>
         import("../views/1HourApps/DrawCanvas.vue")
-  }
+  },
+  {
+    path: "/euler",
+    name: "EulerProject",
+    component: () =>
+        import("../views/EulerProject.vue")
+  },
+  {
+    path: "/euler/ep1",
+    name: "Ep1",
+    component: () =>
+        import("../views/EulerProject/ep1.vue")
+  },
 ];
 
 const router = new VueRouter({
