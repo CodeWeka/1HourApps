@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/Apps">1 Hour Apps</router-link>
+      <router-link to="/apps">1 Hour Apps</router-link> |
+      <router-link to="/euler">Euler Project</router-link> |
     </div>
     <router-view />
   </div>
