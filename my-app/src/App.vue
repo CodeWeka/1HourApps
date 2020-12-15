@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/Apps">1 Hour Apps</router-link>
+      <router-link to="/Apps">1 Hour Apps</router-link>|
+      <router-link :to="{ name: 'UiDesignDaily' }">Ui Design Daily</router-link>
     </div>
     <router-view />
   </div>
